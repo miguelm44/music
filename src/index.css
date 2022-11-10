@@ -17,3 +17,8 @@ code {
   display: flex;
   justify-content: center;
 }
+.carregando {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 300px;
+}
