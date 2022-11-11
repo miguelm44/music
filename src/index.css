@@ -22,3 +22,7 @@ code {
   text-align: center;
   margin-top: 300px;
 }
+
+body:has(.Login){
+  background: linear-gradient(123.66deg, #003BE5 12.08%, #00D5E2 86.52%);
+}

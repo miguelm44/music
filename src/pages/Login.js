@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Mensagem from '../componets/Mensagem';
+import '../index.css';
 
 class Login extends Component {
   constructor() {
