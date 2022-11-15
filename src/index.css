@@ -26,3 +26,43 @@ code {
 body:has(.Login){
   background: linear-gradient(123.66deg, #003BE5 12.08%, #00D5E2 86.52%);
 }
+
+body:has(.mensagem){
+  background-color: rgb(255, 255, 255);
+}
+body:has(.search){
+ background-color:#EFF3F9 ;
+}
+.bloco {
+  
+  border: 1px solid black;
+  width: 300px;
+  border-radius: 10px;
+  background-color: white;
+
+  
+}
+.atrb0 {
+  width: 200px;
+  height: 200px;
+  left: calc(50% - 200px/2 - 213px);
+  top: calc(50% - 200px/2 + 114px);
+  border-radius: 10px;
+  width: 300px;
+}
+.atrb1 {
+  color: black;
+}
+.atrb2 {
+  color: black;
+}
+
+.atrb3 {
+  color: black;
+  background-color: aquamarine;
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
+  
+}
+

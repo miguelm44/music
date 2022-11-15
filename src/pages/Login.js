@@ -53,7 +53,7 @@ class Login extends Component {
   render() {
     const { nome, habilitar, loading } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="Login">
         {
           loading
             ? <Mensagem />
