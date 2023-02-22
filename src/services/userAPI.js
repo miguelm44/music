@@ -11,7 +11,7 @@ const saveUser = (user) => localStorage.setItem(USER_KEY, JSON.stringify(user));
 // "currying function" https://javascript.info/currying-partials
 // não se preocupe, estudaremos isso mais futuramente
 // --------------------------------------------------------------------
-
+/* sss */
 const simulateRequest = (response) => (callback) => {
   setTimeout(() => {
     callback(response);
