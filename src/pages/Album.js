@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Header from '../componets/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../componets/MusicCard';
+import Mensagem from '../componets/Mensagem';
 
 class Album extends React.Component {
   state = {
     retornoApi: [],
     retornoUnico: [],
+    loading: false,
   };
 
   async componentDidMount() {
@@ -23,6 +25,10 @@ class Album extends React.Component {
     });
   }
 
+  setIsloading = (check) => {
+    this.setState({ loading: check });
+  };
+
   seleciona = (array) => {
     const { artistName, collectionName } = array;
     this.setState({
@@ -31,7 +37,7 @@ class Album extends React.Component {
   };
 
   render() {
-    const { retornoUnico, retornoApi } = this.state;
+    const { retornoUnico, retornoApi, loading } = this.state;
     const [artistName, collectionName] = retornoUnico;
     return (
       <div data-testid="page-album">
@@ -40,15 +46,19 @@ class Album extends React.Component {
         <p data-testid="artist-name">{artistName}</p>
         <p data-testid="album-name">{collectionName}</p>
         {
-          retornoApi.map((elemento) => (
-            <MusicCard
-              key={ elemento.trackName }
-              nome={ elemento.trackName }
-              previewUrl={ elemento.previewUrl }
-              trackId={ elemento.trackId }
-              musicas={ elemento }
-            />
-          ))
+          loading
+            ? <Mensagem />
+            : (
+              retornoApi.map((elemento) => (
+                <MusicCard
+                  key={ elemento.trackName }
+                  nome={ elemento.trackName }
+                  previewUrl={ elemento.previewUrl }
+                  trackId={ elemento.trackId }
+                  musicas={ elemento }
+                  setIsloading={ this.setIsloading }
+                />
+              )))
         }
       </div>
     );

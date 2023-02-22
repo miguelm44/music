@@ -73,7 +73,7 @@ class Search extends React.Component {
       nameUndefined,
     } = this.state;
     return (
-      <div data-testid="page-search" className="search">
+      <div data-testid="page-search" className="search" style={ { display: 'flex' } }>
         {loading ? <Mensagem />
           : (
             <form>
@@ -108,7 +108,7 @@ class Search extends React.Component {
 
                 retornoApi.map((elemento) => (
                   <Link
-                    style={ { textDecoration: 'none' } }
+                    style={ { textDecoration: 'none', display: 'flex' } }
                     to={ `/album/${elemento.collectionId}` }
                     data-testid={ `link-to-album-${elemento.collectionId}` }
                     key={ elemento.collectionId }

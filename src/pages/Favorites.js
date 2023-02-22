@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../componets/Header';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Mensagem from '../componets/Mensagem';
 import MusicCard from '../componets/MusicCard';
 
@@ -25,6 +25,19 @@ class Favorites extends React.Component {
     });
   };
 
+  remover = async (array) => {
+    const { retornoApi } = this.state;
+    const verifica = array.map((e) => e.trackId);
+    console.log(verifica);
+    if (verifica.includes(retornoApi.trackId)) {
+      await removeSong(array);
+    }
+  };
+
+  setIsloading = (check) => {
+    this.setState({ loading: check });
+  };
+
   render() {
     const { retornoApi, loading } = this.state;
     return (
@@ -43,6 +56,8 @@ class Favorites extends React.Component {
                     previewUrl={ elemento.previewUrl }
                     trackId={ elemento.trackId }
                     musicas={ elemento }
+                    setIsloading={ this.setIsloading }
+                    remover={ this.remover }
                   />
                 ))}
               </>
